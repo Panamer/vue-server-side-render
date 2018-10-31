@@ -9,6 +9,10 @@ export function createRouter () {
         mode: 'history',
         routes: [
             {
+                path: '/',
+                redirect: { name: 'foo' }
+            },
+            {
                 path: '/foo',
                 name: 'foo',
                 component: () => import('../components/Foo.vue')
