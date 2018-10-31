@@ -13,6 +13,8 @@ const renderer = createBundleRenderer(serverBundle, {
     clientManifest // （可选）客户端构建 manifest
 });
 
+app.use('/dist', express.static('dist'));
+
 // 在服务器处理函数中……
 app.get('*', (req, res) => {
     const context = {
