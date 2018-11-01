@@ -28,8 +28,11 @@ app.get('*', (req, res) => {
     renderer.renderToString(context, (err, html) => {
         // 处理异常……
         if (err) {
-            res.status(500).end('Internal Server Error');
-            console.log(err);
+            if (err.code === 404) {
+                res.status(404).end('Page not found');
+            } else {
+                res.status(500).end('Internal Server Error');
+            }
         }else {
             res.end(html);
         }
