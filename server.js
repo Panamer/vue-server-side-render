@@ -18,16 +18,17 @@ app.use('/dist', express.static('dist'));
 
 // 在服务器处理函数中……
 app.get('*', (req, res) => {
-    const context = {
+    let context = {
         url: req.url,
-        title: 'hello',
+        title: new Date(),
         meta: `<meta charset="utf-8">`
     };
     routes.forEach( (item, index) => {
         if (item.path === req.url) {
-            context.title = item.title;
+            context.title = item.meta.title;
         }
     });
+    console.log(context);
   // 这里无需传入一个应用程序，因为在执行 bundle 时已经自动创建过。
   // 现在我们的服务器与应用程序已经解耦！
     renderer.renderToString(context, (err, html) => {

@@ -1,20 +1,26 @@
 const routes = [
     {
-        title: '首页',
         path: '/',
-        redirect: { name: 'foo' }
+        redirect: { name: 'foo' },
+        meta: {
+            title: '首页'
+        }
     },
     {
         path: '/foo',
         name: 'foo',
-        title: '首页',
-        component: resolve => require(['../components/Foo'], resolve)
+        component: resolve => require(['../components/Foo'], resolve),
+        meta: {
+            title: '首页'
+        }
     },
     {
         path: '/bar',
         name: 'bar',
-        title: '热点',
-        component: resolve => require(['../components/Bar'], resolve)
+        component: resolve => require(['../components/Bar'], resolve),
+        meta: {
+            title: '热点'
+        }
     }
 ];
 
