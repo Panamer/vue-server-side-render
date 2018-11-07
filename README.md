@@ -54,9 +54,9 @@ server.listen(8080)
 │   ├── webpack.client.config.js   # 客户端配置文件
 │   ├── webpack.server.config.js   # 服务端配置文件
 └── src
-    ├── router          
+    ├── router
     │    └── index.js              # 路由
-    └── views             
+    └── views
     │    ├── comp1.vue             # 组件
     │    └── copm2.vue             # 组件
     ├── App.vue                    # 顶级 vue 组件
@@ -525,7 +525,7 @@ app.listen(port, '0.0.0.0', () => {
 
 ### 四、小结
 
-本篇简单了解了 vue ssr 的简单流程，上面例子的demo放在对应项目根目录下，方便查看。服务端渲染还有比较重要的一部分是首屏数据的获取渲染，一般页面展示都会有一些网络数据初始化，服务端渲染可以将这些数据获取到插入到 html ，由于这部份内容涉及到的知识点也不少，放在下次讲。
+回车输入URL 请求server.js 执行res.end(html) 渲染页面只是首屏  当点击路由切换页面的时候，URL变化了但是没有请求server.js 是因为vue路由mode是history，这个时候其实是vue路由在跳转 和普通的vue项目一样 所以没有打印出context （这就是首屏渲染）
 
 #### 运行项目
 
