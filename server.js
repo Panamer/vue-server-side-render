@@ -26,6 +26,7 @@ app.get('*', (req, res) => {
     routes.forEach( (item, index) => {
         if (item.path === req.url) {
             context.title = item.meta.title;
+            return;
         }
     });
     console.log(context);

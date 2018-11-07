@@ -18,15 +18,23 @@
           ├──  server-entry.js           # server 的入口文件
       ├──  server.js           # server 服务
     </pre>
+    <h4 @click="jump">跳转</h4>
   </div>
 </template>
 
 <script>
 export default {
-    data () {
+    data: function () {
         return {
             text: ``
         };
+    },
+    methods: {
+        jump () {
+            this.$router.push({
+                path: "/foo"
+            });
+        }
     }
 };
 </script>
